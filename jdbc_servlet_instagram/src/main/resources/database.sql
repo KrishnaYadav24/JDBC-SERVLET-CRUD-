@@ -1,0 +1,13 @@
+CREATE DATABASE IF NOT EXISTS smart_inventory;
+USE smart_inventory;
+
+CREATE TABLE IF NOT EXISTS products (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(120) NOT NULL,
+    sku VARCHAR(60) NOT NULL UNIQUE,
+    category VARCHAR(80) NOT NULL,
+    quantity INT NOT NULL DEFAULT 0,
+    price DECIMAL(10,2) NOT NULL,
+    supplier VARCHAR(120),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
