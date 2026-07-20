@@ -7,28 +7,29 @@
 </head>
 <body>
 <main class="container">
-    <header class="hero">
+    <header class="hero splash">
         <div>
-            <p class="eyebrow">Smart Inventory</p>
-            <h1>Your inventory project is ready to view</h1>
-            <p>This landing page loads without a database connection. Use it to confirm the WAR is deployed, then open the products dashboard after MySQL is configured.</p>
+            <p class="eyebrow">Smart Inventory System</p>
+            <h1>Control stock, value, suppliers and reorder alerts</h1>
+            <p>A feature-rich JDBC + Servlet + JSP inventory system with dashboard metrics, search, filters, CSV export, product lifecycle status and low-stock intelligence.</p>
         </div>
-        <a class="button" href="${pageContext.request.contextPath}/products">Open Dashboard</a>
+        <a class="button" href="${pageContext.request.contextPath}/products">Launch Dashboard</a>
     </header>
 
-    <section class="grid">
-        <article class="card">
-            <h2>1. Build</h2>
-            <p>Run <code>mvn clean package</code> inside <code>jdbc_servlet_instagram</code>.</p>
-        </article>
-        <article class="card">
-            <h2>2. Deploy</h2>
-            <p>Copy <code>target/smart-inventory.war</code> to Tomcat 10.1+ and start the server.</p>
-        </article>
-        <article class="card">
-            <h2>3. Visit</h2>
-            <p>Open <code>http://localhost:8080/smart-inventory/</code> in your browser.</p>
-        </article>
+    <section class="stats-grid">
+        <article class="stat-card"><span>Dashboard</span><strong>KPIs</strong><p>Total products, stock units, low-stock count and total inventory value.</p></article>
+        <article class="stat-card warning"><span>Alerts</span><strong>Low Stock</strong><p>Reorder badges highlight products at or below their reorder level.</p></article>
+        <article class="stat-card"><span>Operations</span><strong>CRUD + CSV</strong><p>Create, edit, delete, filter, search and export inventory records.</p></article>
+    </section>
+
+    <section class="card">
+        <h2>How to view this project</h2>
+        <ol class="steps">
+            <li>Run the SQL file in MySQL: <code>src/main/resources/database.sql</code>.</li>
+            <li>Build the web archive: <code>mvn clean package</code>.</li>
+            <li>Deploy <code>target/smart-inventory.war</code> to Tomcat 10.1+.</li>
+            <li>Open <code>http://localhost:8080/smart-inventory/</code>.</li>
+        </ol>
     </section>
 </main>
 </body>

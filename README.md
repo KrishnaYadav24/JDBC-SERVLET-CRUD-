@@ -1,6 +1,15 @@
 # Smart Inventory
 
-A complete Maven WAR project for a Smart Inventory CRUD application built with JDBC, Jakarta Servlets, JSP and MySQL.
+A modern Maven WAR project for a Smart Inventory System built with JDBC, Jakarta Servlets, JSP and MySQL.
+
+## Features
+
+- Dashboard metrics for total products, low-stock alerts, total units and inventory value.
+- Product CRUD with SKU, category, supplier, warehouse location, lifecycle status and reorder level.
+- Search across name, SKU, category, supplier and location.
+- Filters for product status and low-stock-only views.
+- CSV export for the currently filtered inventory list.
+- Friendly landing page that opens without a database connection so deployment can be verified first.
 
 ## Project
 

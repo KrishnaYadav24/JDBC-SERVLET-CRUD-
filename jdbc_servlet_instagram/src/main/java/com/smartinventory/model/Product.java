@@ -9,23 +9,13 @@ public class Product {
     private String sku;
     private String category;
     private int quantity;
-    private BigDecimal price;
+    private int reorderLevel;
+    private BigDecimal price = BigDecimal.ZERO;
     private String supplier;
+    private String location;
+    private String status = "ACTIVE";
     private LocalDateTime createdAt;
-
-    public Product() {
-    }
-
-    public Product(int id, String name, String sku, String category, int quantity, BigDecimal price, String supplier, LocalDateTime createdAt) {
-        this.id = id;
-        this.name = name;
-        this.sku = sku;
-        this.category = category;
-        this.quantity = quantity;
-        this.price = price;
-        this.supplier = supplier;
-        this.createdAt = createdAt;
-    }
+    private LocalDateTime updatedAt;
 
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
@@ -37,10 +27,26 @@ public class Product {
     public void setCategory(String category) { this.category = category; }
     public int getQuantity() { return quantity; }
     public void setQuantity(int quantity) { this.quantity = quantity; }
+    public int getReorderLevel() { return reorderLevel; }
+    public void setReorderLevel(int reorderLevel) { this.reorderLevel = reorderLevel; }
     public BigDecimal getPrice() { return price; }
     public void setPrice(BigDecimal price) { this.price = price; }
     public String getSupplier() { return supplier; }
     public void setSupplier(String supplier) { this.supplier = supplier; }
+    public String getLocation() { return location; }
+    public void setLocation(String location) { this.location = location; }
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
     public LocalDateTime getCreatedAt() { return createdAt; }
     public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+    public LocalDateTime getUpdatedAt() { return updatedAt; }
+    public void setUpdatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; }
+
+    public boolean isLowStock() {
+        return quantity <= reorderLevel;
+    }
+
+    public BigDecimal getInventoryValue() {
+        return price == null ? BigDecimal.ZERO : price.multiply(BigDecimal.valueOf(quantity));
+    }
 }
